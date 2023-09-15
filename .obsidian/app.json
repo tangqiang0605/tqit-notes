@@ -1,0 +1,15 @@
+{
+  "attachmentFolderPath": "static",
+  "showUnsupportedFiles": false,
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "autoConvertHtml": false,
+  "vimMode": false,
+  "livePreview": true,
+  "strictLineBreaks": true,
+  "showLineNumber": true,
+  "readableLineLength": false,
+  "showIndentGuide": false,
+  "showInlineTitle": false,
+  "spellcheck": true
+}
