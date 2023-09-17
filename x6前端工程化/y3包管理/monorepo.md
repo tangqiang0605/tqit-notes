@@ -65,12 +65,12 @@ lerna 包含了 workspace 的部分功能（安装依赖），同时也包含版
 changeset 不仅包含了版本的管理，同时也会生成修改日志，这对于一个好用的 npm package 来说至关重要。pnpm 在官网就推荐使用 changeset
 
 ## 任务管理
-nx 或 turborepo
-他们是通过什么机制实现运行任务时间加速呢
-本地缓存
-如果 package 运行过一次，并且这个 package 所依赖的 package 都没有发生过任何改动，那么基本可以断定这个 package build 的结果也不会发生变化，直接采用上次 build 结果这样就实现了执行任务的加速
-共享缓存
-nx 或 turborepo 都支持将构建的结果上传只云端，这样如果同事小强如果曾经构建过某个 package，并且我没有任何改动，那么我就无需重新构建，nx/turborepo 会自动从云端下载缓存供我使用
+nx 或 turborepo 是通过什么机制实现运行任务时间加速呢？
+
+本地缓存：如果 package 运行过一次，并且这个 package 所依赖的 package 都没有发生过任何改动，那么基本可以断定这个 package build 的结果也不会发生变化，直接采用上次 build 结果这样就实现了执行任务的加速
+
+共享缓存：nx 或 turborepo 都支持将构建的结果上传只云端，这样如果同事小强如果曾经构建过某个 package，并且我没有任何改动，那么我就无需重新构建，nx/turborepo 会自动从云端下载缓存供我使用
+
 作者：Focusbe
 链接： https://juejin.cn/post/726187789305667642 
 来源：稀土掘金
