@@ -17,30 +17,37 @@
 内容排版：[中文文案排版指北（简体中文版） — 码志](https://mazhuang.org/wiki/chinese-copywriting-guidelines/)
 
 !()[ https://cdn.nlark.com/yuque/0/2021/png/1500604/1627228502497-382ae028-ae9c-4b1b-862d-4f7233e4753c.png ]
+
 ## 目录
 
 HTML&&CSS
 
 JavaScript
-1. es
+
+1. ecmascript
 2. dom
 3. bom
-4. ts
+4. typescript
 5. 设计模式
 
 算法
+
 1. 手写代码
 2. 经典算法
+3. 代码输出
 
 计算机基础
-1. 计网
-2. 浏览器
+
+1. 计算机网络
+2. 浏览器原理
 
 前端框架
+
 1. vue
 2. react
 
 工程化
+
 1. 模块化
 2. 规范化
 3. 自动化（cicd）
@@ -51,6 +58,7 @@ JavaScript
 8. nodejs
 
 其它
+
 1. 技术解决方案
 2. 工具包开发
 3. 泛客户端（大前端）
