@@ -1,0 +1,1 @@
+[有否可能使用“AOT”预处理改进JS的“JIT”？ - 掘金](https://juejin.cn/post/7250383386183778341?searchId=202307231114067D287D237B2C71E5CC54)
