@@ -1,0 +1,1 @@
+获取文件后缀：path.extname(filePath);

@@ -1,14 +1,16 @@
-# 前端面试笔记
+# 前端知识笔记
 
-> 版本：自动更新
+> 版本：v0.117
 >
 > 作者：唐强
->
-> 更新：2023-09-16
+> 
+> 文章：117 篇
+> 
+> 更新：2023-09-23
 
 ## 介绍
 
-✨ 前端面试笔记，涵盖 HTML&&CSS、JavaScript、vue、react、前端工程化等前端知识。
+✨ 前端知识笔记，涵盖 HTML&&CSS、JavaScript、vue、react、前端工程化等前端知识。
 
 📔 该项目是一个 obsidian（笔记软件）仓库，包含插件、快捷键等配置，克隆后可以直接导入使用。
 
@@ -20,52 +22,156 @@
 
 ## 目录
 
-HTML&&CSS
-
-JavaScript
-
-1. ecmascript
-2. dom
-3. bom
-4. typescript
-5. 设计模式
-
-算法
-
-1. 手写代码
-2. 经典算法
-3. 代码输出
-
-计算机基础
-
-1. 计算机网络
-2. 浏览器原理
-
-前端框架
-
-1. vue
-2. react
-
-工程化
-
-1. 模块化
-2. 规范化
-3. 自动化（cicd）
-4. 打包器
-5. 包管理
-6. 性能优化
-7. 单测
-8. nodejs
-
-其它
-
-1. 技术解决方案
-2. 工具包开发
-3. 泛客户端（大前端）
-
-自动生成
-[x7%E7%AE%97%E6%B3%95](https://github.com/tangqiang0605/tqit-notes/tree/main/x7算法)
-[%E5%AD%A6%E4%B9%A0%E6%9D%90%E6%96%99%E6%8E%A8%E8%8D%90.md](https://github.com/tangqiang0605/tqit-notes/blob/main/x7%E7%AE%97%E6%B3%95/%E5%AD%A6%E4%B9%A0%E6%9D%90%E6%96%99%E6%8E%A8%E8%8D%90.md)
+README
+x0 每日学习
+	前端英语
+	算法学习
+x1HTML&&CSS
+	css 技巧与应用
+		background 技巧
+		bfc
+		css 动画
+		css 在线工具推荐
+		字体引入
+		屏幕适配
+		滚动条
+	SEO
+		favicon 网页图标
+		元信息
+	三件套实践指南
+	嵌入技术
+		audio 嵌入音频
+		canvas 标签
+		iframe 嵌入网页
+		svg 标签语法
+		svg 矢量图标
+		响应式图片
+		图标
+		图片
+		视频
+		页面嵌入技术
+	引入各种资源
+	文字
+		字体属性
+x2JavaScript
+	bom
+		Performance
+		WebRTC 实时通讯
+		文件流处理
+		用户行为模拟
+	dom
+		dom
+		DOM 事件处理和传播机制
+		dom 基础
+		jsdom
+		MutationObserver 监听元素
+		Shadow 自定义组件
+		回到顶部
+		复制文本
+		拖拽元素
+		页面生命周期事件
+		页面通信
+	ecma
+		y3 运行时
+			AOT 预编译技术
+			index
+			JavaScript 引擎
+			JavaScript 引擎是如何解析和执行代码的
+			JIT 即时编译技术
+			js 引擎
+			事件循环
+			优化方法
+			垃圾回收机制
+			数据存储
+			沙箱
+			调用栈堆
+		对象
+			this 指向
+			toString
+			对象原型
+			对象转换为基本类型
+			私有属性
+		对象实例
+			Function
+			Map
+		类型
+			JS 中的数字
+			类型判断
+	TypeScript
+		ts 模块声明
+		ts 配置文件
+		ts 面向对象
+		解决 ts-node 报错
+	实用工具函数
+x3 框架
+	angular
+	x3Vue
+		setup
+	x4React
+	基于 nextjs 构建博客网站
+x4 工程化
+	y3 包管理
+		monorepo
+		monorepo 实战
+		npm-script
+			npm 脚本
+			常用脚本
+		npm 依赖结构
+	性能优化
+		CDN
+		回流与重绘
+		图片优化
+	打包
+		webpack 配置2
+		构建工具
+	语法降级
+	调试
+x5 计算机基础
+	浏览器原理
+		标签页通信
+		浏览器安全
+			csrf 跨站请求伪造攻击
+			xss 跨站脚本攻击
+			中间人攻击
+			前端常见安全问题
+			网络劫持
+		渲染原理
+		线程与进程
+		缓存
+		请求途径
+		调试
+	计算机网络
+		HTTPS
+		URL
+		WebSocket 协议
+		y2 安全
+			HTTPS
+			SLL 握手
+			TLS 证书
+			中间人攻击
+			对称加密
+			异或加密
+			重播攻击
+			非对称加密
+		服务器常识
+x7 后台
+	b.md
+	docker
+	express 和 koa
+	node 常用 API
+	使用 nodejs 发送 https 请求
+x8 其它
+	chatgpt 使用与接入飞书
+	vim
+		vim
+		viminumC
+	可视化
+		Pixi. js
+		threejs
+	大前端
+		Hybrid 混合开发
+		原生应用程序
+		跨端技术
 
 ## 疑问
 
