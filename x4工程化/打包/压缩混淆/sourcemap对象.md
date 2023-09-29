@@ -1,0 +1,1 @@
+可以被 https://github.com/mozilla/source-map 使用的 SourceMap 数据
