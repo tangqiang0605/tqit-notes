@@ -1,0 +1,2 @@
+[隔壁同事：卧槽？你对 useEffect 的理解怎么这么牛逼😡😡😡 - 掘金](https://juejin.cn/post/7264208575973605431?searchId=2023100217411273D0ECE0B4C0F8A64644)
+[消除异步的传染性【渡一教育】\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1hp4y1A71j/?spm_id_from=333.1007.top_right_bar_window_history.content.click)
