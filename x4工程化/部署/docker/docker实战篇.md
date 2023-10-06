@@ -37,7 +37,19 @@ docker-compose up --build
 ```
 ## 搭建学习 nginx 配置的环境
 ```
-docker run -it --rm -p 3000:80 nginx:alpine
+docker run -it --rm -p 3000:80 nginx:alpine sh
+```
+
+```
+version: "3"
+services:
+	learn-nginx:
+		image: nginx:alpine
+		ports:
+			- 4000:80
+		volumns:
+			- nginx.conf:/etc/nginx/conf.d/default.conf
+			- .:/usr/share/nginx/html 
 ```
 ## 部署静态页面
 2. 编写 Dockerfile、docker-compose. yaml 启动项目。
@@ -139,3 +151,19 @@ docker ps -a # 查看容器id
 ```
 [[命令行命令]]查看对应的静态文件
 
+## 构建并部署 react 项目
+![[Pasted image 20231003195031.png]]
+![[Pasted image 20231003195046.png]]
+配置前端路由
+```
+location / {
+	try_files $uri $uri/ / index.html
+	expires -1; # no-cache
+}
+```
+静态资源强缓存：
+```
+location /static {
+	expires 1y;
+}
+```

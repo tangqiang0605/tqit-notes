@@ -39,11 +39,22 @@ services:
 		- ./:/egg:ro # 本地到容器的映射
 		-  /egg/node_modules # 排除文件夹
 ```
+```
+services:
+	nginx-app:
+		build:
+			context: .
+			dockerfile: nginx.Dockerfile
+		ports:
+			- 4000:80
+```
 命令：v1 使用 docker-compose，v2 使用 `docker compose`。
 ```
 docker compose up # 启动容器
 -d 后台
 --build 镜像修改时会重启
+-f 指定文件
+名字，只启动指定的app
 
 docker-compose version
 docker compose ls

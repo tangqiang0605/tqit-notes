@@ -3,8 +3,11 @@
 /usr/local/nginx
 /usr/local/nginx/sbin
 /usr/local/nginx/conf/nginx.conf
-/usr/share/nginx/html
 /home/static/项目/dist
+
+# docker
+/etc/nginx/conf.d
+/usr/share/nginx/html
 ```
 命令 `nginx` 即 `/usr/local/nginx/sbin/nginx`。
 其它常见位置：
@@ -144,6 +147,7 @@ server {
 启用 gzip 同时需要客户端和服务端的支持，如果客户端支持 gzip 的解析，那么只要服务端能够返回 gzip 的文件就可以启用 gzip 了, 我们可以通过 nginx 的配置来让服务端支持 gzip。下面的 respone 中 `content-encoding:gzip`。
 
 ```
+location
     gzip                    on;
     gzip_http_version       1.1;        
     gzip_comp_level         5;
@@ -158,9 +162,9 @@ server {
 
 ## 优化
 ```
-nginx配置
-location下
+nginx配置location下
+# X-自定义头部字段
 add-header X-key value;
 gzip on;
-expires -1;设置了就是headers的Cache-control的值max-age=xxx
+expires -1;设置了就是headers的Cache-control的值max-age=xxx,单位是秒，3600就是60m
 ```
