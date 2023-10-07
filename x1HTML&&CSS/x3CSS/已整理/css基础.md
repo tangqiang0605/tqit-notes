@@ -267,3 +267,5 @@ clamp 函数
 
 用 margin-left 或 margin-right: auto。如果使用 flex 1，会让东西移到中心，margin 则不会。
 
+## 参考
+[Web 开发者指南 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide)

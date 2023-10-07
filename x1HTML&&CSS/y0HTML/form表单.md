@@ -278,5 +278,6 @@ form.addEventListener('submit',function (event) {
 });
 ```
 
-
+## 参考
+[Web 开发者指南 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide)
 

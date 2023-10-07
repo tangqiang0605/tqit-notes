@@ -1,6 +1,42 @@
 ## 概述
 **文档**是由标记语言组织起来的文本文件。HTML 是最常见的标记语言，但你可能也听说过其他可标记语言，如 SVG 或 XML。实际上，HTML 和 SVG 都是 XML 的子集。
 
+## 结构
+
+``` html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>name</title>
+    </head>
+    <body>
+        
+    </body>
+</html>
+```
+
+``` html
+<!DOCTYPE html>
+<html lang='en'>
+    
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    引入字体
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    引入基础样式
+    引入图标
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    设置标题
+    <title>Natours | Exciting tours for adventurous</title>
+    </head>
+</html>
+```
 ## 标签
 HTML 由特定的 XML 标签以及其属性值、innerContent 构成。
 
@@ -11,8 +47,6 @@ $(selector).text()
 ```
 
 一般元素应该包含开始标签、结束标签、内容。除了空标签。HTML 标签不区分大小写。不过，从一致性、可读性来说，最好仅使用小写字母。属性间不分顺序，空格隔开，键值对等于连接表示。
-
-
 
 ### 基础结构标签
 基础结构：
