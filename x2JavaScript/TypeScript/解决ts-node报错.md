@@ -1,4 +1,4 @@
-在 tsconfigjson 添加
+在 `tsconfig.json` 中添加
 ```
 {
 	"ts-node":{
