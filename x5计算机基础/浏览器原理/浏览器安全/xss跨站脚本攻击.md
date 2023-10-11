@@ -17,3 +17,11 @@ let src='image'+num+'.png'
 // 设置img的src为src
 ```
 dom 型攻击就是浏览器在解析页面的过程中被注入了恶意代码。原因是前端没有对用户输入的内容进行过滤就意图插入 html 中。
+
+## 预防
+防范 XSS 攻击的最好方式就是删除或禁用任何可能包含可运行代码指令的标记。对 HTML 来说，这些包括类似 `<script>, <object>, <embed>,和 <link>` 的标签。
+
+修改用户数据使其无法用于运行脚本或其他影响服务器代码执行的过程被称作输入过滤。许多 Web 框架默认情况下都会对来自 HTML 表单的用户数据进行过滤。
+
+## 参考
+[站点安全 - 学习 Web 开发 | MDN](https://developer.mozilla.org/zh-CN/docs/Learn/Server-side/First_steps/Website_security)

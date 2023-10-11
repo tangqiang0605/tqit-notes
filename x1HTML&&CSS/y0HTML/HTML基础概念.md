@@ -84,9 +84,9 @@ $(selector).text()
 
 
 ### 空标签
-空元素只有一个标签，通常用来在此元素所在位置插入/嵌入一些东西。如 img、input。
+用于插入/嵌入东西。如 img、input。
 
-HTML 中，无需在一个空元素的标签末尾添加 `/`，例如 `<img src="images/cat.jpg" alt="cat" />`。然而，这也是一种有效的语法，当你希望你的 HTML 是有效的 XML 时，这么做也没问题。
+HTML 中，无需在一个空元素的标签末尾添加 `/`，但当你希望你的 HTML 是有效的 XML 时，这么做也没问题。在 jsx 中，需要闭合。
 
 ### 替换元素
 替换元素：像 [`<img>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img) 和 [`<video>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video) 这样的元素有时被称之为**替换元素**（嵌入元素），因为这样的元素的内容和尺寸由外部资源（像是一个图片或视频文件）所定义，而不是元素自身。
