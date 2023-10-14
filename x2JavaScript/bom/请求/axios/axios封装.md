@@ -1,31 +1,57 @@
 ## 封装
-1. 创建实例（baseURL 从环境取，请求超时时间）
+1. 创建实例（设置 baseURL 、请求超时时间）
 2. 请求拦截器（配置 token）
-3. 响应拦截器（响应服务器的响应比如 token 校验）
+3. 响应拦截器（响应服务器的响应，比如 token 校验）
 4. 导出实例
-5. 使用：执行实例：实例（）
-
 
 ## axios 配置
-vue 页面使用 store，store 调用 api，api 使用封装的 axios。
+请求数据的单向数据流：vue 页面使用 store，store 调用 api，api 使用封装的 axios。
 ```
-引入axios
-从包里引入进来的axios是一个提供很多静态方法的函数。可以直接调用它，或者使用它的属性、方法。
 import axios from 'axios';
 
-axios({url,method,data});// 直接调用
-axios.defaults.baseURL='xxx';// 设置属性
-axios.create(axios.defaults);// 使用方法（创建单例）
+// axios是一个拥有很多静态方法的函数。
+axios({url,method,data}); // 直接调用
+axios.defaults.baseURL='xxx'; // 设置属性
+axios.defaults.timeout=60000;
 
-不管是axios还是create创建的对象，都是单例，都拥有同样的方法属性。
-create的意义在于，你可以创建多个单例并设置不同的baseURL。
-下面用service表示create的单例。
+// token在拦截器里设置更合适
+service.defaults.headers.common['Authorization']='token';
+// 可以不设置。放这里是为了知道有这种操作。
+service.defaults.headers.post['Content-Type']='application/x-www-form-urlencoded';
+service.defaults.headers.get['Content-Type']='application/x-www-form-urlencoded';
 ```
+实例
+```
+不管是axios还是create创建的对象，都是实例，都拥有同样的方法属性。
+create的意义在于，你可以创建多个实例并设置不同的配置。
+通常使用service、request表示create的单例。
+const service = axios.create(axios.defaults); // 创建实例
+```
+封装
 
 ```
-设置拦截器
+import axios from 'axios';
+import {config} from './config';
+
+// 第一、二步，创建单例并配置普通属性
+const service=axios.create(config);
+
+// 第三步，配置拦截器
 service.interceptors.request.use(reqInterceptor,handleReqErr);
 service.interceptors.response.use(resInterceptor,handleResErr);
+
+export default service;
+```
+config
+```
+config：
+{
+	baseURL:config.baseURL来自配置文件的前缀
+	tiemout:5000,
+	// 以上两个足矣
+	withCredentials:true, //跨域携带cookie
+	headers:{'X-Custom-Header':'xxx'}
+}
 ```
 
 option 嗅探请求跨域问题：
@@ -36,75 +62,28 @@ option 嗅探请求跨域问题：
 
 设置拦截
 
-导出单例
+导出实例
 
 ## axios 封装一
 1. 没有使用单例
 2. 对 request 的封装不够好（要自己填 post、get 字符串）。
 3. 没有使用@而是使用相对路径./../
 4. 接口路径不规范，应该使用：get_user-name 类似格式而不是小驼峰。
-```
-yarn add axios
-```
-axios 二次封装
-```
-// src/api/axios.js
-import axios from 'axios';
-import { useCommonStore } from '../store/module/common.js';
-import { storeToRefs } from 'pinia';
 
-// 全局配置
-axios.defaults.timeout=60000;
-axios.defaults.baseURL='';
-
-// 拦截器
-axios.interceptors.request.use(reqInterceptors,handleReqError);
-axios.interceptors.response.use(resInterceptors,handleResError);
-
-// 封装请求
-export {request};
-```
-没必要，但可以了解 axios 的用法。
-![[Pasted image 20230412191502.png]]
-接口管理
-对这段代码的评价：要用 get、post 字符串，封装之后更麻烦。api 地址不应是小驼峰，路径一般不区分大小写，建议使用 kebab-case。
+### 接口管理
 ```
 // src/api/api.js
 import { request } from './axios.js';
 
 export class UserApi{
-	static async login(params){
-		return request('/login',params,'post');
-	}
-	static async register(params){
-		return request('/register',params,'post');
-	}
-	static async getUserInfo(params){
-		return request('/userInfo',params,'get');
-	}
-}
-
-export class BookApi{
-	static async getBookList(params){
-		return request('/bookList',params,'get');
-	}
+	static async login(params){}
+	static async register(params){}
+	static async getUserInfo(params){}
 }
 ```
 
-逻辑层
-```
-// xxx.vue
-import { UserApi } from '../api/api.js';
-const login=async ()=>{
-	const params={
-		username:'admin',
-		password:'1234',
-	}
-	const res=await UserApi.login(params);
-}
-```
-
-前端解决跨域（json、proxy）
+## 前端解决跨域
+（json、proxy）
 proxy, server 的 host、port、proxy（target、changeOrigin、rewrite）
 ```
 // vite.config.js
@@ -125,69 +104,6 @@ export default defineConfig({
 			}
 		}
 	}
-})
-```
-
-## axios 封装二
-1. 有分环境
-2. 不需要封装 request 方法。
-
-yarn add axios
-
-### 配置
-vite 分环境
-```
-.env.dev
-NODE_ENV='development'
-
-.env.prod
-NODE_ENV='production'
-```
-![[Pasted image 20230412171547.png]]
-```
-script:{
-"build-only": "vite build --mode production"
-其他mode
-}
-```
-### 封装
-```
-import axios from 'axios';
-import {config} from '@config';
-
-// 第一、二步，创建单例并配置普通属性
-const service=axios.create(config);
-
-// 第三步，配置拦截器
-service.interceptors.request.use(reqInterceptor,handleReqErr);
-service.interceptors.response.use(resInterceptor,handleResErr);
-
-export default service;
-```
-```
-config：
-{
-	baseURL:config.baseURL来自配置文件的前缀
-	tiemout:5000,
-	以上两个足矣
-	withCredentials:false,
-	headers:{'X-Custom-Header':'xxx'}
-}
-```
-
-```
-不必要的配置
-// config中设置单例属性（类似全局静态属性的内容，axios.defaults.timeout）.
-// 请求头只能在defaults中设置。
-// token在拦截器里设置更合适
-service.defaults.headers.common['Authorization']='token';
-// 可以不设置。放这里是为了知道有这种操作。
-service.defaults.headers.post['Content-Type']='application/x-www-form-urlencoded';
-service.defaults.headers.get['Content-Type']='application/x-www-form-urlencoded';
-```
-### 反向代理
-前端解决跨域问题的办法。
-```
 	server:{
 		cors:true,
 		open:true,// 自动打开
@@ -200,30 +116,33 @@ service.defaults.headers.get['Content-Type']='application/x-www-form-urlencoded'
 			}
 		}
 	}
-```
-
-### 使用
-```
-api.js
-
-import service from '@/util/request.js';
-export const getSomething=()=>service.get('/get_something');
-export const testPost=(params)=>service.post('/test/post',{
-	params,
-	{
-		x-www-form-urlencoded用于表单提交
-		headers:{'Content-Type':'application/x-www-form-urlencoded'}
-	}
 })
 ```
 
-## axios 封装 3
+### vite 分环境
+```
+env后面对应vite命令参数mode的值
+
+.env.dev
+NODE_ENV='development'
+
+.env.prod
+NODE_ENV='production'
+```
+脚本：
+```
+script:{
+	"build-only": "vite build --mode production"
+}
+```
+环境值参考（来源网络）：
+![[Pasted image 20230412171547.png]]
+## 类封装
 ```
 import axios from 'axios'
 import type {AxiosInstance,AxiosRequestConfig,AxiosResponse,InternalAxiosRequestConfig} from 'axios';
 
 class Request {
-	单例
 	instance:AxiosInstance
 	constructor(config:AxiosRequestConfig){
 		this.instance=axios.create(config);
@@ -245,15 +164,10 @@ import request from '@/utils/request.ts';
 
 const a=new request(config);
 
-request(config);
+a.request(config);
 ```
 
-```
-类拦截器
-
-```
-
-## 请求中动画
+## 全局loading
 发送请求时，累计请求+1，收到响应时，累计请求-1，大于 0，启动加载动画，等于 0，关闭动画。
 
 动画组件从 store 读取累计请求。axios 会更新 store 中的累计请求。
@@ -266,48 +180,8 @@ request(config);
 ## 加密
 npm install crypto-js@^4.0.0
 
-
 ## 接口测试
 使用 springboot、nodejs、express、koa、mock 工具 提供接口。
-
-
-## alova
-axios 弱点：
-1. 与框架弱绑定，需自行维护。
-2. 性能无作为。重复请求、同时多个请求。
-3. 体积 11+kb。
-4. ts 迷惑。
-
-alova 优点：
-1. 请求缓存
-2. 请求共享：
-3. 提供加载状态
-4. 4 kb+
-
-```
-// axios
-import axios from 'axios';
-import {ref,onMounted} from 'vue';
-
-const loading=ref(false);
-const error=ref(null);
-const data=ref(null);
-
-const requestData=()=>{
-	loading.value=true;
-	或者使用try-catch，在二者没有什么区别。
-	axios.get('http://xxx/index')
-		.then(result=>{data.value=result})
-		.catch(e=>{error.value=e})
-		.finally(()=>{loading.value=false});
-}
-onMounted(requestData);
-
-// alova
-import { createAlova, useRequest } from 'alova';
-const pageData=createAlova({baseURL}).Get('/index');
-const {loading,data,error} =useRequest(pageData);
-```
 
 ## 拦截器
 用于动态设置 token（推荐）
@@ -316,3 +190,126 @@ const {loading,data,error} =useRequest(pageData);
 响应拦截
 不足：200 或 response. config. responseType=== 'blob'即文件流也直接返回。
 ![[Pasted image 20230412191625.png]]
+## axios 二次封装
+axios 对底层网络请求 api 的封装。在浏览器中运行使用 xhr。在 nodejs 中运行使用 http 模块。
+
+`npm i axios`
+
+使用方法：
+1. 像 fetch 一样直接使用。
+2. 二次封装 axios，适应业务需求，减少代码量。
+
+二次封装：创建实例，挂载配置（请求头、拦截器），导出实例（即完成单例模式的创建）
+```js
+import axios from "axios";  
+// import router from "@/router";  
+import {config} from "@/config/index.ts";  
+
+创建实例
+const service = axios.create({  
+baseURL: config.baseUrl,  
+timeout: 5000,  
+withCredentials: false,  
+headers: {'X-Custom-Header': 'zuiyu'}  
+})  
+全局配置
+service.defaults.headers.common['Authorization'] = "AUTH_TOKEN";  
+service.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';  
+service.defaults.headers.get['Content-Type']='application/x-www-form-urlencoded'  
+
+请求拦截器  
+service.interceptors.request.use(function (req) {  
+console.log(config,req)  
+// if (config.loading) {  
+// }  
+return req;  
+}, function (error) {  
+// 对请求错误做些什么  
+return Promise.reject(error);  
+});  
+
+响应拦截器  
+service.interceptors.response.use(function (response) {  
+const res = response.data;  
+if (res.code !== 200) {  
+// token 过期  
+if (res.code === 401)  
+// 警告提示窗  
+return;  
+if (res.code == 403) {  
+return;  
+}  
+// 若后台返回错误值，此处返回对应错误对象，下面 error 就会接收  
+return Promise.reject(new Error(res.msg || "Error"));  
+}  
+return response;  
+}, function (error) {  
+// 对响应错误做点什么  
+if (error && error.response) {  
+switch (error.response.status) {  
+case 400:  
+error.message = "请求错误(400)"  
+break  
+case 401:  
+error.message = "未授权,请登录(401)"  
+break  
+case 403:  
+error.message = "拒绝访问(403)"  
+break  
+case 404:  
+error.message = `请求地址出错: ${error.response.config.url}`  
+break  
+case 405:  
+error.message = "请求方法未允许(405)"  
+break  
+case 408:  
+error.message = "请求超时(408)"  
+break  
+case 500:  
+error.message = "服务器内部错误(500)"  
+break  
+case 501:  
+error.message = "服务未实现(501)"  
+break  
+case 502:  
+error.message = "网络错误(502)"  
+break  
+case 503:  
+error.message = "服务不可用(503)"  
+break  
+case 504:  
+error.message = "网络超时(504)"  
+break  
+case 505:  
+error.message = "HTTP版本不受支持(505)"  
+break  
+default:  
+error.message = `连接错误: ${error.message}`  
+}  
+} else {  
+if (error.message == "Network Error") error.message == "网络异常，请检查后重试！"  
+error.message = "连接到服务器失败，请联系管理员"  
+}  
+return Promise.reject(error);  
+});  
+  
+export default service
+```
+
+## axios 分环境
+[Vue3集成axios分环境调用 (qq.com)](https://mp.weixin.qq.com/s/KCxiOrnzg5V6Qy9fOR3g6A)
+dev 开发环境，prod 生产环境
+
+1. 编写环境文件
+2. 配置环境信息并导出@/config/index. ts
+3. 修改 packagejson 的 vite script
+4. 封装 request
+5. 配置反向代理 vite. config. ts
+
+## axios 优化
+请求动画：请求开始时加载动画，请求结束时结束动画，应该封装到 axios 中。如果多个请求，会导致动画被前面某个请求关闭。
+
+
+
+## 参考文章
+[十分钟封装一个好用的axios，省时又省力他不香吗 - 掘金](https://juejin.cn/post/7090889657721815076?searchId=20231014103922CED99F141000F468251B)，除了开头有些废话，最后的用例是符合我的习惯的，推荐阅读学习。

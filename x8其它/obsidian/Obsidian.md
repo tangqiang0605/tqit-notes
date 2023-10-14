@@ -67,3 +67,4 @@ advance table 用于快速创建表格。输入竖线创建表格，按 tab 创�
 
 下载 [juqkai/obsidian-proxy-github (gitee.com)](https://gitee.com/juqkai/obsidian-proxy-github) zip 包并放在仓库. obsidian/plugins 下。改名为 proxyGithub。重启 obsidian 并在第三方插件开启即可。
 
+[解决Obsidian粘贴代码时自动添加空行的问题\_Stay--hungry的博客-CSDN博客](https://blog.csdn.net/Shao_yihao/article/details/128481770)：设置，编辑器，高级，关闭自动转换 HTML。

@@ -35,3 +35,6 @@ map.set(key,value)
 链接： https://juejin.cn/post/7141174031411052581
 来源：稀土掘金
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+## 参考与推荐
+[JavaScript 映射表Map和Object对比 | Web前端 Map 如何使用 | JavaScript Map vs Object | 前端实验室_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1uj411w7df/?spm_id_from=333.1007.tianma.10-3-41.click&vd_source=a192bbc2c82b7725cd9d5149075acda1)

@@ -25,7 +25,11 @@ axios({url,params})
 ```
 // config中包含请求头的设置
 // 推荐写法
-axios.post('/test_post',data,config)
+axios.post('/test_post',data,config,
+	{
+		x-www-form-urlencoded用于表单提交
+		headers:{'Content-Type':'application/x-www-form-urlencoded'}
+	})
 // 通用写法
 axios({	...config,url,method,data})
 ```

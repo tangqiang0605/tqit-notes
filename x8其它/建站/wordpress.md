@@ -7,8 +7,6 @@
 国外（外贸电商）SiteGround (bidewang.co/sg)、国内网站阿里云。
 
 如果在其它地方购买域名，需要修改 DNS（域名解析服务器）。
-
-
 ## 自定义
 1. 主题 theme。
 2. 模板 template。
