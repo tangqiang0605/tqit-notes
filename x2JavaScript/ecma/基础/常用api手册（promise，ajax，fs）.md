@@ -123,30 +123,6 @@ xhr.onreadystatechange=function(){
 ```
 
 ``` js
-const p = new Promise((resolve, reject) => {
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.apiopen.top/getJok');
-  xhr.send();
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        // console.log(xhr.response);
-        resolve(xhr.response);
-      } else {
-        // console.log(xhr.status);
-        reject(xhr.status)
-      }
-    }
-  }
-})
-p.then(value => {
-  console.log(value);
-}, reason => {
-  console.warn(reason);
-})
-```
-
-``` js
 function sendAJAX(url) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();

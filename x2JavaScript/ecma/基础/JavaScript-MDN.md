@@ -1,9 +1,10 @@
-[JavaScript](https://developer.mozilla.org/zh-CN/docs/Glossary/JavaScript) 编程语言允许你在 Web 页面上实现复杂的功能。如果你看到一个网页不仅仅显示静态的信息，而是
-显示依时间更新的内容
-交互式地图 
-2D/3D 动画图像
-滚动的视频播放器
-控制多媒体，制作图像动画，
+[JavaScript](https://developer.mozilla.org/zh-CN/docs/Glossary/JavaScript) 编程语言允许你在 Web 页面上实现复杂的功能。如果你看到一个网页不仅仅显示静态的信息，而是：
+1. 显示依时间更新的内容
+2. 交互式地图 
+3. 2D/3D 动画图像
+4. 滚动的视频播放器
+5. 控制多媒体，制作图像动画
+说明它包含了 JavaScript 。
 
 # 链接
 ## [基本定义](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Howto#%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89)

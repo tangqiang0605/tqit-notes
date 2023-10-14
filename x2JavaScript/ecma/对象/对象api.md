@@ -1,1 +1,0 @@
-使用 Object.getOwnPropertyDescriptor 查看，会发现 window.document 的 configurable 属性为 false（不可配置的）
