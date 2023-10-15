@@ -5,9 +5,13 @@
 强制数字类型转换：valueOf，然后 toString。
 强制字符串类型转换：toString，然后 valueOf。
 
+``` javascript
+Object. defineProperty (obj, Symbol. toStringTag, { value: "Module" });
+console. log (Object. prototype. toString. call (obj)) //'[object Module]'改变了类型为 Module
+```
+
 > 除了日期对象，大多数对象没有可用的默认 valueOf()方法。可以通过重写对象的 valueOf()方法来自定义对象转换为数字的行为。
 ## 实例
-
 1. 对象 `{}` 和 `[]` 都没有 `[@@toPrimitive]()` 方法。
 2. 都从 [`Object.prototype.valueOf`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf) 继承 `valueOf()`，返回对象自身。
 3. 调用 `toString()` 方法。[`{}.toString()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) 返回 `"[object Object]"`，而 [`[]. toString ()`]( https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/toString ) 返回 `""`。数组的 toString 等同 `arr.join(',')`。
