@@ -68,7 +68,13 @@ position：absolute。通过left、top设置相对绝对布局的最近祖宗元
 
 position：fixed。脱离文档流。left、bottom、right、top相对窗口。脱离文档流会把元素宽高设置为内容宽高。会触发bfc。fixed是固定父元素为html的absolute。
 
-position：sticky。滚到一定位置fixed。脱离文档流。
+position：sticky。滚到一定位置 fixed。脱离文档流。基于用户的滚动位置来定位。
+粘性定位的元素是依赖于用户的滚动，在 position: relative 与 position: fixed 定位之间切换。它的行为就像 position: relative; 而当页面滚动超出目标区域时，它的表现就像 position: fixed;，它会固定在目标位置。元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。这个特定阈值指的是 top, right, bottom 或 left 之一，换言之，指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。
+
+作者：教主鸽鸽
+链接： https://juejin.cn/post/7080889197719994375
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 
 
@@ -342,7 +348,7 @@ flex：过大 过小 基准=grow shrink basis。flex：initial等于01auto
 
 与自适应布局对比一下。一个静态html多个设备不同形态。引入多个css，basic/small/big等。需要使用meta标签开启移动端响应式。（meta标签开启响应式 ，知手机浏览器设定网页宽度）
 
-
+动态设置 html 标签 font-size 大小（@media）
 
 ### 一些方法
 

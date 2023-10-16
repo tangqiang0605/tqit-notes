@@ -91,6 +91,11 @@ HTML 中，无需在一个空元素的标签末尾添加 `/`，但当你希望�
 ### 替换元素
 替换元素：像 [`<img>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img) 和 [`<video>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video) 这样的元素有时被称之为**替换元素**（嵌入元素），因为这样的元素的内容和尺寸由外部资源（像是一个图片或视频文件）所定义，而不是元素自身。
 
+修改属性值呈现的内容就可以被替换的元素。比如 img 的 src、iframe 的 src。
+1. 有固有尺寸。但是建议给定 css 或宽高属性（css > html > 固有），避免回流（重新布局）。
+2. 都是内联或内联块。
+3. vertical-align 中的基线为下边缘。
+
 ### 标签语义
 我们要敬畏语义，做到**正确选用元素**。不要使用标题元素来加大、加粗字体，因为标题对于 [无障碍访问](https://developer.mozilla.org/zh-CN/docs/Learn/Accessibility) 和 [搜索引擎优化](https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals#%e4%b8%ba%e4%bb%80%e4%b9%88%e6%88%91%e4%bb%ac%e9%9c%80%e8%a6%81%e7%bb%93%e6%9e%84%e5%8c%96%ef%bc%9f) 等问题非常有意义。要保持页面结构清晰，标题整洁，不要发生标题级别跳跃。
 

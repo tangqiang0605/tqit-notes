@@ -2,7 +2,7 @@ css inspiration
 
 https://developer.mozilla.org/en-US/docs/Web/css
 
- 
+ 1. 高度如果是百分比，如果父对象不一样，同样的百分比结果不一样。
 
 
 点击子元素对父操作：
