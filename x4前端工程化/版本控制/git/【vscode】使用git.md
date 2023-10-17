@@ -1,5 +1,3 @@
-【vscode】使用git
-
 ## 一、安装
 
 安装vscode
