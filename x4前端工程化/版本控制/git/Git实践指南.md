@@ -1,35 +1,32 @@
-# 起步
+## 环境配置
+1. 下载 git。
+2. 配置
+```
+git config --global user.xxx
 
-## git起步
-
-安装git
-
-git config --global uesr.name 用户名
-
+exp.
+git config --global user.name 用户名
 git config --global user.email 邮箱地址
+```
+3. vscode 拓展
+	1. git graph
+	2. git lens
 
-## 图形化git起步
-
-安装vscode
-
-安装git graph插件
-
-安装git blame插件：状态栏显示光标所在行的编辑者、编辑时间。
-
-## 项目起步
+## 创建仓库
 
 ### （推荐）远程克隆
 
-1. 在gitee新建纯空仓库，复制其https地址。
-2. 在vscode新建窗口（Ctrl+Shift+N）选择克隆到某个文件夹里。
-3. master有commit记录才能切换分支，第一件事就是写个readme将master发布（messge：初始化）。这样master也就成为了默认分支。如果在master前先同步其他分支会出现问题：默认分支是第一个上传的分支。master如果无法上传，多试几次，或者在远程新建对应分支（最好不要）。发布master之后切换分支开始工作。
+1. 创建远程仓库。
+2. git clone。
+3. master 有 commit 记录才能切换分支，第一件事就是写个 readme 将 master 发布。这样 master 也就成为了默认分支。
 
-其他方案：
-本地
+注意：
+1. 默认分支是第一个上传的分支，所以在 master 前同步其它分支会出现问题。解决：从默认分支新建一个 master 并设置为默认分支。
+2. master 如果无法上传，多试几次，或者在远程新建对应分支（最好不要）。
+3. 发布 master 之后切换分支开始工作。
 
-本地后远程
 
-# 教程
+
 
 ## 仓库
 

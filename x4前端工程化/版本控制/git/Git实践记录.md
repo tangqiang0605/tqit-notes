@@ -1,5 +1,8 @@
-
-
+## vscode 可视化操作
+1. 切换分支
+	1. GitGraph
+	2. 状态栏
+2. 
 ## 起步（本地变远程）
 
 这里是将克隆的库删除远程又添加远程后。
@@ -8,33 +11,11 @@
 
 其他分支可发步就发布，如果不可发布，在同步master之后，是有其他远程分支的，变基分支发布即可。
 
-## 起步（克隆）
-
-vscode插件：git graph、git blame好用。git history和git graph差不多，后者好用点。
-
-第一步创建远程仓库（啥也不选）复制https地址。
-
-第二步vscode打开新窗口、克隆git仓库。库是选择在一个文件夹里放项目。所以其实不用新建文件夹，它会把项目下在这个文件夹里，打开我们选择的文件夹，再打开一层就是项目的所有文件。
-
-第三步可以写个空的readme把master传上远程。
-
-master需要有commit记录才能切换分支。
-
-第四步切换分支开始工作。
-
 ## 插件
 
-git graph。
+gitlen 没有 gitgraph 可视化做的好
 
-git blame。
-
-光标所在行的作者、编辑时间。
-
-![image-20230111075443360](D:\tplmydata\tplmydoc\文档图片\image-20230111075443360.png)
-
-git history。感觉graph就够用了。下次试试。
-
-gitLen是一个很厉害的插件、不会用。这是他的功能。
+gitLen 是一个很厉害的插件、不会用。这是他的功能。（确实）
 
 ![image-20230111074948496](D:\tplmydata\tplmydoc\文档图片\image-20230111074948496.png)
 
@@ -44,7 +25,7 @@ gitLen是一个很厉害的插件、不会用。这是他的功能。
 
 ## 功能
 
-源代码管理储存库：没用，隐藏掉，它的功能下面都有。
+源代码管理储存库：没用，隐藏掉，它的功能下面都有。gitlen 会增加一项（控制台显示分支情况）。
 
 ![image-20230111002624526](D:\tplmydata\tplmydoc\文档图片\image-20230111002624526.png)
 
@@ -70,7 +51,7 @@ gitLen是一个很厉害的插件、不会用。这是他的功能。
 
 分支管理
 
-后五个：创建分支（从当前分支的点），从现有来源创建新的分支（选择任何一个分支从它创建，可以是分支的最新commit或者head，head可以是最新commit也可以不是，可以checkout到任意位置）。重命名。删除（只有未发布删除的分支在远程不留删除记录，废话。不能选自己，可以删别人，如果需要删自己，切成别人删自己）。发布（创建的新分支同步到远程。不用）
+后五个：创建分支（从当前分支的点），可以是分支的最新 commit 或者 head，head 可以是最新 commit 也可以不是，可以 checkout 到任意位置）。重命名。删除（只有未发布删除的分支在远程不留删除记录，废话。不能选当前分支）。发布（创建的新分支同步到远程。不用）
 
 ![image-20230111003121004](D:\tplmydata\tplmydoc\文档图片\image-20230111003121004.png)
 
@@ -118,7 +99,7 @@ gitLen是一个很厉害的插件、不会用。这是他的功能。
 
 <img src="D:\tplmydata\tplmydoc\文档图片\image-20230110234334321.png" alt="image-20230110234334321" style="zoom:50%;" /><img src="D:\tplmydata\tplmydoc\文档图片\image-20230110234519463.png" alt="image-20230110234519463" style="zoom:50%;" />
 
-回到原来的，暂存是在前面，右键暂存的，把它pop出来，然后继续工作，工作后commit，stach就会不见。下面是commit后stash消失的样子。
+回到原来的，暂存是在前面，右键暂存的，把它 pop 出来，然后继续工作，工作后 commit。
 
 <img src="D:\tplmydata\tplmydoc\文档图片\image-20230110234848873.png" alt="image-20230110234848873" style="zoom:50%;" /><img src="D:\tplmydata\tplmydoc\文档图片\image-20230110235125820.png" alt="image-20230110235125820" style="zoom:50%;" />
 
@@ -128,7 +109,7 @@ gitLen是一个很厉害的插件、不会用。这是他的功能。
 
 同步是针对当前分支的，不对别人生效，要一个分支一个分支同步。
 
-1. 没有origin表示未同步，跟了origin表示已同步。没有origin表示在远程不存在该分支。未同步时需要同步。可以通过graph插件的fetch键与远端同步。或者抓取。
+1. 没有origin表示未同步，跟了origin表示已同步。没有origin表示在远程不存在该分支。
 1. ![image-20230111075747591](D:\tplmydata\tplmydoc\文档图片\image-20230111075747591.png)<img src="D:\tplmydata\tplmydoc\文档图片\image-20230111080610836.png" alt="image-20230111080610836" style="zoom:50%;" />
 
 ![image-20230110192518591](D:\tplmydata\tplmydoc\文档图片\image-20230110192518591.png)
@@ -149,66 +130,19 @@ gitLen是一个很厉害的插件、不会用。这是他的功能。
 
 不冲突合并
 
-这样子表示dev领先master一个功能，master可以合并他保持最新。
-
-合并后合并的分支的颜色会变得和被合并的分支一样。
+表示 dev 领先 master 一个分支，master 可以通过合并操作直接到达最新的提交。
 
 <img src="D:\tplmydata\tplmydoc\文档图片\image-20230110180703498.png" alt="image-20230110180703498" style="zoom: 50%;" /> <img src="D:\tplmydata\tplmydoc\文档图片\image-20230110180731760.png" alt="image-20230110180731760" style="zoom:50%;" />
-
-图表示其实并没有产生冲突。（通过图判断冲突）不同色不在同一条线上表明有冲突。
-
-<img src="D:\tplmydata\tplmydoc\文档图片\image-20230110181032690.png" alt="image-20230110181032690" style="zoom:50%;" /><img src="D:\tplmydata\tplmydoc\文档图片\image-20230110181932877.png" alt="image-20230110181932877" style="zoom:50%;" />
 
 解决冲突（从简单到复杂）
 
 ![image-20230110182149539](D:\tplmydata\tplmydoc\文档图片\image-20230110182149539.png)
 
-0. 简单的解决看这三个选项就可以了。也可以直接上手修改。（未）
+推荐合并编辑器。
 
-1. 这个界面可以直接看到区别，也可以使用**比较变更**，更加明显。（未）
-
-2. 合并编辑器：使用功能或者直接上手修改。
-
-   1. 一般先使用功能，必要再配上手动修改。
-      1. 接受的组合，一般也用不到吧感觉。冲突一般是不共存的。
-         1. 接受当前+接受传入
-         2. 接受传入+接受当前（符合逻辑）
-         3. 接受当前
-         4. 接受传入
-         5. 删除当前
-         6. 删除传入
-      2. 接受组合，两边接受组合的结果不一样，当前的接受组合的结果不可理解。这里删除相当于接受另一方了。
-
-   2. 手动修改后可以重置。
-
-![image-20230110182921619](D:\tplmydata\tplmydoc\文档图片\image-20230110182921619.png)
-
-合并分支会产生一个新的commit。这个commit不属于任何一个分支，而是继承自两个分支，并立于传入分支上（也就是最后一个合并的分支）。
-
-解决冲突后，分支发现与落后于分支但不冲突，合并分支后再继续写代码。
-
-![image-20230110184240840](D:\tplmydata\tplmydoc\文档图片\image-20230110184240840.png)
-
-
-
-尝试：
-
-了解哪些功能是vscode自带的、哪些是拓展来着、还有哪些好用的拓展
-
-使用gitee拓展[Gitee Extension for Visual Studio - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=GiteeInc.GiteeExtension)
-
-起步新建仓库尝试选一些东西。
-
-尝试右键的commit![image-20230110181609035](D:\tplmydata\tplmydoc\文档图片\image-20230110181609035.png)
+合并分支会产生一个新的 commit。这个 commit 基于当前分支。
 
 ## 变基
-
-合并就是我仍是主流，被合并的是分流。
-
-变基是，同流，我在被变基的基础前做了多次commit成为在被变基前面的分支。此时是同一条线同色了。
-
-这是变基
-
 变基就是因为基不一样，才有变基，所以一定存在冲突。
 
 <img src="D:\tplmydata\tplmydoc\文档图片\image-20230111083451914.png" alt="image-20230111083451914" style="zoom:33%;" /> 
