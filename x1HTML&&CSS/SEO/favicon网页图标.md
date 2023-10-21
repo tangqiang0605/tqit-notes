@@ -4,7 +4,7 @@
 ```
 
 自适应图标：
-```
+```html
 <!-- 含有高分辨率 Retina 显示屏的第三代 iPad：-->
 <link
   rel="apple-touch-icon-precomposed"
