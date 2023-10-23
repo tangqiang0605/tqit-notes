@@ -1,4 +1,6 @@
-setup 是一个语法糖
+
+
+setup 是一个语法糖，script 不用 setup 时，通过 export 暴露给 template。
 ```
 import {defineComponent} from 'vue'
 
