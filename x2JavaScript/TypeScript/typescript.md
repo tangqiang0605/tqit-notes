@@ -1,87 +1,14 @@
-[类型兼容：协变和逆变 | 编程时光](https://www.coding-time.cn/ts/advance/%E5%8D%8F%E5%8F%98%E5%92%8C%E9%80%86%E5%8F%98.html#%E5%8D%8F%E5%8F%98-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%90%91%E4%B8%8B%E5%85%BC%E5%AE%B9%E6%80%A7)
-
-装饰器、泛型、高级类型以及元数据反射等。严格的空值检查（--strictNullChecks）映射类型,可选链和空值合并运算符,
-
-TypeScript 还有良好的工具支持，比如 TSLint 和 Prettier
-
-TypeScript 的类型定义文件（.d.ts）是一个独特的优点，它们为已有的 JavaScript 库提供类型信息。
-
-TypeScript 是 JavaScript 的超集。提供了 JavaScript 的所有基本数据类型，如：number、string、boolean 等。它还增加了额外的类型，比如 any、unknown、never、void 等。
-
-TypeScript 的类型是小写的，和 JavaScript 的 typeof 一样。
-
-## 基础
-### 类型
-数组Array
-1. number\[\]
-2. 泛型写法，Array\<number\>
-3. 元组类型 Tuple，在方括号中定义具体值或类型
-
-枚举 Enum 
-1. 可以给枚举值赋值
-2. 如果枚举值为数字，后面递增
-3. 枚举值可以是字符串
-4. 枚举值可以是表达式
-5. 异构枚举：枚举值为数字和字符串混用。
-```
-enum Color {Red,Green,Blue}
-let c:Color=Color.Green
-```
-
-Unknown 
-1. any 类型对应的安全类型。any 类型允许我们对其进行任何操作，而 unknown 类型则要求我们在操作之前进行类型检查或类型断言，以确保类型的安全性。
-2. 只能赋给 any 或 unknown
-3. 在对 unknown 类型的值进行**操作**之前，必须进行类型检查或类型断言，确保操作的安全性。
-
-空与未定义
-1. 所有类型的子类型。可以把 null 或 undefined 赋给其他类型。
-2. 当你指定了--strictNullChecks 标记，null 和 undefined 只能赋值给 void 和它们各自的类型
-
-void
-1. 表示函数无返回值
-2. 作为变量只能接收 null 或 undefined，一般不会这样做。
-
-Never
-1. never 类型是那些总是会抛出异常或者根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型。函数 error 和 infiniteLoop 的返回类型都是 never
-2. never 类型用来表示永远不可能存在的值的类型。比如，一个永远抛出错误或者永远处于死循环的函数的返回类型就是 never
-3. 在实际开发中，我们可能很少直接使用 never 类型，但是它在 TypeScript 的类型推断和控制流分析中起着非常重要的作用。
-```
-function error(message: string): never {
-    throw new Error(message);
-}
-```
-
-### 自定义类型
-联合类型 Union Types
-```
-let variable: string | number;
-
-variable = "Hello"; // OK
-variable = 1; // OK
-
-```
-
-交叉类型 Intersection Types
-```
-interface Part1 { 
-  a: string;
-}
-
-interface Part2 { 
-  b: number;
-}
-
-type Combined = Part1 & Part2;
-
-let obj: Combined = { 
-  a: 'hello',
-  b: 42,
-};
-```
-
 ### 接口和类
+内涵：
+接口是对对象属性的规范，对象是对接口规范的一个具体实现。
+
+特性：
 1. 至少满足 interface 的定义，可以有多余的属性。
 2. interface 的属性可以是函数，然后这个 interface 可以用来描述函数。
+3. 多个同名接口会合并。或使用语义化的 extends。
+4. ？为空安全，表示可选属性。
+5. redonly 加在前面，只读。
+6.  \[proName: string\]:any：接任意多个属性，确定属性、可选属性（已经写了的属性要和该属性的类型兼容，所以一般写 any 或联合类型）
 ```
 interface SearchFunc {
   (source: string, subString: string): boolean;
@@ -154,11 +81,7 @@ reverse('hello');  // returns 'olleh'
 4. 随着 ES6 模块语法的普及，现代 JavaScript 项目通常更倾向于使用模块来组织代码。然而，对于一些遗留项目或那些需要将多个文件合并为一个全局可用的库的场景，命名空间可能更为合适。
 5.  TypeScript 中，我们可以使用模块解析策略（如 Node 或 Classic），以确定如何查找模块。这些策略在 tsconfig.json 文件的 compilerOptions 选项下的 moduleResolution 选项中定义。模块就是 esm 的模块了。
 
-## 类型系统层级
-### 顶层类型（Top Type）和底层类型（Bottom Type）
-顶层类型是所有其他类型的父类型，这意味着在 TypeScript 中的任何类型都可以看作是顶层类型的子类型。TypeScript 中有两个特殊的顶层类型：any 和 unknown
 
-底层类型是所有类型的子类型。这意味着，在类型系统的层次结构中，任何类型都可以被看作是底层类型的超类型。在 TypeScript 中，never 类型是唯一的底层类型。
 
 ## 类型数组
 像"Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday"这样的式子是 typescript 的数组。in 可以判断是否在数组中。
@@ -287,11 +210,16 @@ let animalHandler: (animal: Animal) => void = dogHandler;  // Error!
 我们不能将类型为(dog: Dog) => void 的 dogHandler 赋值给类型为(animal: Animal) => void 的 animalHandler。因为如果我们传递一个 Animal（并非所有的 Animal 都是 Dog）给 animalHandler，那么在执行 dogHandler 函数的时候，就可能会引用不存在的 breed 属性。因此，函数的参数类型是逆变的。
 
 ## .d.ts 拓展类型定义
+TypeScript 的类型定义文件（.d.ts）是一个独特的优点，它们为已有的 JavaScript 库提供类型信息。
+
 声明文件是一种以 .d.ts 为扩展名的特殊文件，它不包含具体的实现，主要内容是类型声明，包括变量、函数、类、接口等的类型定义。
 
 编写声明文件时，我们使用 declare 关键字来声明**全局**变量、函数、类、接口等类型。
 
 当我们在一个项目中使用多个声明文件时，需要注意文件的加载顺序和作用域问题。因为声明文件中的类型声明会影响整个项目，所以我们需要确保所有的声明文件都被正确地加载，并且不会互相冲突。
+
+
+
 
 ### 声明模块
 使用 declare module 时，我们可以定义一个模块，并在其中声明模块内部的类型
@@ -306,6 +234,15 @@ declare module 'my-module' {
 import {myVariable} from 'my-module'
 ```
 
+用于声明和识别特殊后缀的模块，比如 vue 文件。
+```
+// 声明vue文件模块导出的对象类型
+delare module '*.vue'{
+  import {defineComponent,App} from 'vue'
+  const component:RetrunType <typeof defineComponent> & {install(app:App):void}
+  export default component
+}
+```
 ### 声明合并
 声明合并是 TypeScript 的一项特性，它允许我们在多个位置声明同名的类型，然后 TypeScript 会将这些声明合并为一个类型
 

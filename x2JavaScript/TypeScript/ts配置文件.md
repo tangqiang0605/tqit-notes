@@ -31,5 +31,3 @@ noImplicitThis 不允许隐式this（指定this的类型在函数参数中）
 strictNullChecks 严格检查空值
 strict 开启所有严格检查配置
 ```
-
-
