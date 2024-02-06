@@ -7,7 +7,7 @@
 
 现在，iframe、canvas、video 出现了。而 iframe 提供嵌入网页的方法。
 
-[[视频]]
+[[x1HTML&&CSS/嵌入与引入/视频]]
 
 [[audio嵌入音频]]
 

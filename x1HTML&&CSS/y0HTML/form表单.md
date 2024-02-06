@@ -38,6 +38,7 @@
 fieldset 的子元素，用于描述这个 fieldset 的功能。
 
 ### label 标签
+![[Pasted image 20231219183655.png]]
 for 值为 input 的 id，与 input 联动。
 为什么使用 label+for
 1. 点击时聚焦 for

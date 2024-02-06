@@ -1,4 +1,4 @@
-
+![[Pasted image 20231219183713.png]]
 canvas 标签：用于动画、游戏、数据可视化、图片编辑、实时视频处理等方面。
 
 canvasAPI：2D

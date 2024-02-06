@@ -215,21 +215,6 @@ document.documentElement.style.setProperty();
 ```
 可用于设置主题颜色
 
-## 使元素不可见
-隐藏元素
-
-| 方法                         | 占据空间 | 响应点击 | GPU 加速 | 备注        |
-| ---------------------------- | -------- | -------- | -------- | ----------- |
-| display. none                | no       | no       | no       | 推荐        |
-| visibility. hidden           | yes      | no       | no       |       推荐      |
-| opacity. 0                   | yes      | yes      | yes      |             |
-| absolute. top.-999           | no       | no       | no       | 常用于 canvas 加速 |
-| 盒子模型为 0+overflow        | no       | no       | no       |             |
-| clip-path: polygon (0 pxx 8) | yes      | no       | no       |             |
-|                              |          |          |          |             |
-
-display 和 visibility 适应 80%的两种不同要求。
-特殊场景（动画、渲染）性能优化：opacity、absolute。
 
 ## 响应式图片
 

@@ -1,7 +1,17 @@
 ---
 desc: 用于嵌入网页
 ---
-
+## iframe
+优点：
+1. 安全，隔离环境、脚本、资源。
+2. 快。如果不分开，脚本是一起下载一起解析，使用 iframe 就是各下各的，各自解析自己的资源。
+缺点：
+1. 通信。使用 cookie 或 postMessage。
+2. dom 隔离。
+3. SEO 不友好。
+4. 容易管理混乱。
+5. 浏览器进退键对 iframe 无效。
+![[Pasted image 20231219183618.png]]
 它提供了一种将整个 web 页嵌入到另一个网页的方法，看起来就像那个 web 页是另一个网页的一个 [`<img>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img) 或其他元素一样。[`<iframe>`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe) 现在经常被使用。
 
 关于 `<iframe>` 有一些严重的[安全隐患](https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies#%E5%AE%89%E5%85%A8%E9%9A%90%E6%82%A3)需要考虑，但这并不意味着你不应该在你的网站上使用它们——它只需要一些知识和仔细地思考。

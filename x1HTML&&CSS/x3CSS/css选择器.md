@@ -1,5 +1,5 @@
 [CSS 选择器 | 菜鸟教程 (runoob.com)](https://www.runoob.com/cssref/css-selectors.html)
-
+![[Pasted image 20231219200135.png]]![[Pasted image 20231219201207.png]]
 ## 选择器权重
 ![image-20221231111820871](D:\tplmydata\tplmydoc\文档图片\image-20221231111820871.png)
 

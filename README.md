@@ -7,7 +7,8 @@
 > 文章：600 篇
 > 
 > 更新：2023-10-20
-
+1. 前端大部分知识是琐碎的，需要大部分文章单独记录，必要时使用 ob 笔记的单链双链进行连接。
+2. 总体是系统的，需要少部分文章来记录。
 ## 介绍
 
 ✨ 前端知识笔记，涵盖 HTML&&CSS、JavaScript、vue、react、前端工程化等前端知识。
@@ -18,14 +19,39 @@
 
 内容排版：[中文文案排版指北（简体中文版） — 码志](https://mazhuang.org/wiki/chinese-copywriting-guidelines/)
 
-!()[ https://cdn.nlark.com/yuque/0/2021/png/1500604/1627228502497-382ae028-ae9c-4b1b-862d-4f7233e4753c.png ]
+
+## 分类
+1. HTML、CSS：与页面样式相关技术。
+2. Javascript：Ecmascript、BOM 和 DOM、typescript 相关知识。
+	1. ecmascript：函数、异步、es 新特性
+	2. 
+3. 前端框架
+	1. 单页面：vue、react 以及相关库。
+	2. 大前端。uniapp、flatter、rn。
+	3. SSR：nuxt、next。
+	4. SSG：docusarus、vuepress
+	5. 库：jquery、three、echarts。
+4. 前端工程化
+	1. 模块化、规范化、自动化
+	4. webpack、vite、npm script 各种工具
+	5. 性能优化
+	6. cicd：git、测试、部署（建站）、自动化。
+5. 计算机基础：计算机网络、浏览器底层知识等。
+6. 前端算法
+	1. JavaScript 手写
+	2. 代码输出题
+	3. 力扣算法题、
+	4. 设计模式等。
+7. 后台技术：数据库、nodejs 等。
+8. 业务技术：技术解决方案
+	1. 登录
+	2. 布局
+9. 其它：vim、前端资讯、vscode、obsidian 等。
+
 
 ## 目录
 
 README
-x0 每日学习
-	前端英语
-	算法学习
 x1HTML&&CSS
 	css 技巧与应用
 		background 技巧
